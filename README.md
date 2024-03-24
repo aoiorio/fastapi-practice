@@ -34,3 +34,4 @@ $ docker-compose up
 
 ## 🚢 reference
 - [FastAPI Introduction](https://zenn.dev/sh0nk/books/537bb028709ab9/)
+- [What is poetry](https://qiita.com/nilwurtz/items/0e5b8382757ccad9a56c)
