@@ -1,4 +1,4 @@
-# download python 3.9
+# download python 3.9 for executing
 FROM python:3.9-buster
 ENV PYTHONUNBUFFERED=1
 
