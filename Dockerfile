@@ -16,4 +16,5 @@ RUN poetry config virtualenvs.in-project true
 RUN if [ -f pyproject.toml ]; then poetry install --no-root; fi
 
 # start server of uvicorn
-ENTRYPOINT ["poetry", "run", "uvicorn", "api.main:app", "--host", "0.0.0.0", "--reload"]
+# --reload means that when we changed code, uvicorn server will reload immediately
+ENTRYPOINT ["poetry", "run", "uvicorn", "books:app", "--host", "0.0.0.0", "--reload"]
