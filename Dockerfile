@@ -17,4 +17,5 @@ RUN if [ -f pyproject.toml ]; then poetry install --no-root; fi
 
 # start server of uvicorn
 # --reload means that when we changed code, uvicorn server will reload immediately
-ENTRYPOINT ["poetry", "run", "uvicorn", "books:app", "--host", "0.0.0.0", "--reload"]
+# please change {file name}:app to launch a server
+ENTRYPOINT ["poetry", "run", "uvicorn", "books2:app", "--host", "0.0.0.0", "--reload"]
