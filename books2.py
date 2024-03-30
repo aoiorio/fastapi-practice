@@ -1,3 +1,4 @@
+# Please ignore this yellow error, because you might have your virtual environment by using Docker
 from fastapi import FastAPI
 
 app = FastAPI()
