@@ -1,4 +1,4 @@
-## This repository is for my practice of FastAPI
+## 😇 This repository is for my practice of FastAPI 😇
 <br>
 
 ## 🪝 How to start for the first time
@@ -32,6 +32,19 @@ $ docker-compose up
 ```
 <br>
 
-## 🚢 reference
+## 🦖 Info
+- If you want to add a package, you can exec this command
+```shell
+# login to fastapi-practice
+$ docker-compose exec fastapi-practice /bin/bash
+# Then you can execute it
+$ poetry add {the name of package}
+```
+<br>
+
+## 🚢 references
 - [FastAPI Introduction](https://zenn.dev/sh0nk/books/537bb028709ab9/)
 - [What is poetry](https://qiita.com/nilwurtz/items/0e5b8382757ccad9a56c)
+- [How to add a package by using poetry](https://zenn.dev/rihito/articles/7b48821e4a3f74)
+- [Similar article of Udemy course](https://qiita.com/yamarao/items/6889adfd4b484b7b5e11)
+- [How to move to deferent directory like cd](https://qiita.com/rururu_kenken/items/8b5862e54fbe156a8cb8)
