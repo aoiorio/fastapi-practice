@@ -8,9 +8,6 @@ WORKDIR /src/TodoApp
 # 🧠 install poetry using pip
 RUN pip install poetry
 
-# 🧠 install sqlalchemy using pip
-RUN pip install sqlalchemy
-
 # 🍞 if it exists, copy the poetry's definition file
 COPY pyproject.toml* poetry.lock* ./
 
