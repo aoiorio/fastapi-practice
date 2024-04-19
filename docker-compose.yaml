@@ -7,4 +7,43 @@ services:
       - .:/src
     ports:
       - 8000:8000 # ホストマシンのポート8000を、docker内のポート8000に接続する(Connect the port 8000 of host machine to port 8000 that in Docker)
+    # tty: true は、/dev/ptsという所に仮想デバイスを追加して、backgroudでずっと動かし続けるというコマンドで、他のサーバーたちが動いていても終了しない
+    # If you set it as true, the fastapi-practice server will be running all the time even the other one is running at the same time.(?)
+    tty: true
+    depends_on:
+      - service_postgres
+    restart: always
 
+  service_postgres:
+    image: postgres
+    container_name: todo_db
+    ports:
+      - 5432:5432
+
+    # Connect to the postgres using those environment values (maybe it means pqsl -D db_name -p user_password -u username)?
+    environment:
+      - POSTGRES_USER=${POSTGRES_USER}
+      - POSTGRES_DB=${POSTGRES_DB}
+      - POSTGRES_HOST_AUTH_METHOD=trust
+      - POSTGRES_PASSWORD=${POSTGRES_PASSWORD}
+    volumes:
+      - postgres_data:/var/lib/postgresql/data/
+
+  # Not from the application that is in my host device, but launch pgadmin service in guest device (virtual device!).
+  service_pgadmin:
+    image: dpage/pgadmin4:6.11
+    container_name: todo_pgadmin
+    ports:
+      - 8080:80
+    volumes:
+      - volume_pgadmin:/var/lib/pgadmin
+    environment:
+      PGADMIN_DEFAULT_EMAIL: ${PGADMIN_DEFAULT_EMAIL}
+      PGADMIN_DEFAULT_PASSWORD: ${PGADMIN_DEFAULT_PASSWORD}
+    depends_on:
+      - service_postgres
+
+# Save the data (If you remove service_postgres container, it won't be removed)
+volumes:
+    postgres_data:
+    volume_pgadmin:
