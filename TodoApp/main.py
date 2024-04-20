@@ -1,14 +1,18 @@
 # magic!!
 from fastapi import FastAPI, Depends, HTTPException, Path, status
-import models
-from database import engine
-from routers import auth, todos, admin, users
+from .models import Base
+from .database import engine
+from .routers import auth, todos, admin, users
 
 
 app = FastAPI()
 
 # create new database if the DB does not exit.(maybe same name???)
-models.Base.metadata.create_all(bind=engine)
+Base.metadata.create_all(bind=engine)
+
+@app.get('/healthy')
+def heal_check():
+    return {'status': 'Healthy'}
 
 # you can use whatever you want if you write all of routers that you want to connect with same URL
 app.include_router(auth.router)

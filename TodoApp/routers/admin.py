@@ -1,8 +1,8 @@
 # magic!!
-from models import Todos
-from database import SessionLocal
+from ..models import Todos
+from ..database import SessionLocal
+
 from typing import Annotated
-import models
 from fastapi import APIRouter, Depends, HTTPException, Path, status
 from sqlalchemy.orm import Session
 from pydantic import BaseModel, Field

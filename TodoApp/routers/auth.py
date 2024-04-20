@@ -1,16 +1,16 @@
 from datetime import datetime, timedelta
 from fastapi import APIRouter, Depends, status, HTTPException
-from pydantic import BaseModel
+from pydantic import BaseModel, Field
 from sqlalchemy.orm import Session
 
 from passlib.context import CryptContext
-from database import SessionLocal
+from ..database import SessionLocal
 from typing import Annotated
 # bearer means 使い.
 from fastapi.security import OAuth2PasswordRequestForm, OAuth2PasswordBearer
 from jose import jwt, JWTError
 
-from models import Users
+from ..models import Users
 
 router = APIRouter(
     prefix='/auth',
@@ -33,11 +33,13 @@ class CreateUserRequest(BaseModel):
     last_name: str
     password: str
     role: str
+    phone_number: str
 
 
 class Token(BaseModel):
     access_token: str
     token_type: str
+
 
 
 def get_db():
@@ -51,7 +53,6 @@ def get_db():
 
 
 db_dependency = Annotated[Session, Depends(get_db)]
-
 
 # Check the user can authenticate with the username and the password
 def authenticate_user(username: str, password: str, db):
@@ -97,6 +98,7 @@ async def create_user(db: db_dependency, create_user_request: CreateUserRequest)
         # Hash the password by using bcrypt and passlib packages.
         hashed_password=bcrypt_context.hash(create_user_request.password),
         role=create_user_request.role,
+        phone_number=create_user_request.phone_number,
         is_active=True,
     )
 
@@ -131,3 +133,4 @@ async def login_for_access_token(
 # async def get_user(db: db_dependency):
 #     users = db.query(Users).all()
 #     return users
+
