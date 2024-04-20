@@ -69,4 +69,4 @@ $ poetry run alembic [your_command]
 - [How to import other file?](https://qiita.com/karadaharu/items/37403e6e82ae4417d1b3)
 - [How to run alembic command using poetry](https://zenn.dev/keita_f/articles/4493e3cfd76aec)
 - [SQLALCHEMY_DATABASE_URL_REFERENCE](https://stackoverflow.com/questions/71116549/sqlalchemy-exc-operationalerror-psycopg2-operationalerror-with-postgresql)
-- (error reading bcrypt version )[https://github.com/langflow-ai/langflow/issues/1173]
+- [error reading bcrypt version ](https://github.com/langflow-ai/langflow/issues/1173)
