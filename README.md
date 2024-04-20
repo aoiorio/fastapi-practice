@@ -33,18 +33,25 @@ $ docker-compose up
 <br>
 
 ## 🦖 Info
-- If you want to add a package, you can exec this command
+- 😄 If you want to add a package, you can exec this command
 ```shell
 # login to fastapi-practice
 $ docker-compose exec fastapi-practice /bin/bash
 # Then you can execute it
 $ poetry add {the name of package}
 ```
+<br>
 
-- If you want to connect PgAdmin to Postgres,
-- PgAdmin's connection section will be service_postgres
+- 🫀 If you want to connect PgAdmin to Postgres,
+  - PgAdmin's connection section will be service_postgres
   - I think the name should be same as service_postgres
   - And the user name will be POSTGRES_USER and password is going to be POSTGRES_PASSWORD that are in env file
+
+- 😵 **If you run alembic command**
+```shell
+# You have to add "poetry run" in front of "alembic" if you're using poetry
+$ poetry run alembic [your_command]
+```
 
 <br>
 
@@ -60,3 +67,6 @@ $ poetry add {the name of package}
 - [Remove volume](https://ysko909.github.io/posts/delete-volume-when-get-password-authentication-failed-error/)
 - [What's tty?](https://zenn.dev/hohner/articles/43a0da20181d34)
 - [How to import other file?](https://qiita.com/karadaharu/items/37403e6e82ae4417d1b3)
+- [How to run alembic command using poetry](https://zenn.dev/keita_f/articles/4493e3cfd76aec)
+- [SQLALCHEMY_DATABASE_URL_REFERENCE](https://stackoverflow.com/questions/71116549/sqlalchemy-exc-operationalerror-psycopg2-operationalerror-with-postgresql)
+- (error reading bcrypt version )[https://github.com/langflow-ai/langflow/issues/1173]

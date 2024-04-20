@@ -3,7 +3,7 @@ FROM python:3.9-buster
 ENV PYTHONUNBUFFERED=1
 
 # 📁 specify the directory that I'll execute the below commands; I can choose a directory like "/src/{folder name}".
-WORKDIR /src/TodoApp
+WORKDIR /src
 
 # 🧠 install poetry using pip
 RUN pip install poetry
@@ -18,4 +18,4 @@ RUN if [ -f pyproject.toml ]; then poetry install --no-root; fi
 # 🎉 start server of uvicorn
 # --reload means that when we changed code, uvicorn server will reload immediately
 # please change {file name}:app to launch a server
-ENTRYPOINT ["poetry", "run", "uvicorn", "main:app", "--host", "0.0.0.0", "--reload"]
+ENTRYPOINT ["poetry", "run", "uvicorn", "TodoApp.main:app", "--host", "0.0.0.0", "--reload"]
