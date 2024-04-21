@@ -44,13 +44,12 @@ class UserVerificationPhoneNumber(BaseModel):
 @router.get('/')
 async def get_users(user: user_dependency, db: db_dependency):
     if user is None:
+        print("Authentication Failed")
         raise HTTPException(status_code=401, detail="Authentication Failed 😩")
 
     user_id = user.get('id')
     user_model = db.query(Users).filter(Users.id == user_id).first()
 
-    if user_model is None:
-        raise HTTPException(status_code=401, detail="User not found")
 
     return user_model
 

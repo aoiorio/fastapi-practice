@@ -10,7 +10,7 @@ from .auth import get_current_user
 
 # Clean the order by using tags and prefix
 router = APIRouter(
-    prefix='/auth',
+    prefix='/admin',
     tags=['admin']
 )
 

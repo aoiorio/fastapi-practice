@@ -45,7 +45,7 @@ async def read_all(user: user_dependency, db: db_dependency):
     So that you can get the value from key.
     user.get of get method means that if you don't have such a key, it'll make it.
     """
-    return db.query(models.Todos).filter(Todos.owner_id == user.get("id")).all()
+    return db.query(Todos).filter(Todos.owner_id == user.get("id")).all()
 
 
 @router.get("/todo/{todo_id}", status_code=status.HTTP_200_OK)

@@ -64,7 +64,7 @@ def authenticate_user(username: str, password: str, db):
     return user
 
 
-def create_access_token(username: str, user_id: int, role: str,expires_delta: timedelta):
+def create_access_token(username: str, user_id: int, role: str, expires_delta: timedelta):
     encode = {"sub": username, "id": user_id, "role": role}
 
     expires = datetime.utcnow() + expires_delta
