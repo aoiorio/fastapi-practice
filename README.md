@@ -70,3 +70,5 @@ $ poetry run alembic [your_command]
 - [How to run alembic command using poetry](https://zenn.dev/keita_f/articles/4493e3cfd76aec)
 - [SQLALCHEMY_DATABASE_URL_REFERENCE](https://stackoverflow.com/questions/71116549/sqlalchemy-exc-operationalerror-psycopg2-operationalerror-with-postgresql)
 - [error reading bcrypt version ](https://github.com/langflow-ai/langflow/issues/1173)
+- [CSRF token is missing error in docker pgadmin](https://stackoverflow.com/questions/64394628/csrf-token-is-missing-error-in-docker-pgadmin)
+- [Add Foreign key and delete Foreign key](https://postgresweb.com/post-6354#google_vignette)
