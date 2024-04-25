@@ -18,4 +18,5 @@ RUN if [ -f pyproject.toml ]; then poetry install --no-root; fi
 # 🎉 start server of uvicorn
 # --reload means that when we changed code, uvicorn server will reload immediately
 # please change {file name}:app to launch a server
-ENTRYPOINT ["poetry", "run", "uvicorn", "TodoApp.main:app", "--host", "0.0.0.0", "--reload"]
+# You can change "TodoApp.main:app" to "FOLDERNAME.FILENAME:app" or if you're in parent directory "FILENAME:app"
+ENTRYPOINT ["poetry", "run", "uvicorn", "TodoAppFullStack.main:app", "--host", "0.0.0.0", "--reload"]
