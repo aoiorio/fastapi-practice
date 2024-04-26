@@ -25,6 +25,43 @@ $ docker-compose build --no-cache
 ```
 <br>
 
+**<details><summary>👹 My pyproject.toml</summary>**
+
+```toml
+[tool.poetry]
+name = "fastapi-practice"
+version = "0.1.0"
+description = ""
+authors = ["Your Name <you@example.com>"]
+readme = "README.md"
+
+[tool.poetry.dependencies]
+python = "^3.9"
+fastapi = "^0.110.0"
+uvicorn = {extras = ["standard"], version = "^0.29.0"}
+sqlalchemy = "^2.0.29"
+passlib = {extras = ["bcrypt"], version = "^1.7.4"}
+bcrypt = "^4.1.2"
+python-multipart = "^0.0.9"
+python-jose = {extras = ["cryptography"], version = "^3.3.0"}
+psycopg2-binary = "^2.9.9"
+psycopg2 = "^2.9.9"
+wheel = "^0.43.0"
+alembic = "^1.13.1"
+pytest = "^8.1.1"
+httpx = "^0.27.0"
+pytest-asyncio = "^0.23.6"
+aiofiles = "^23.2.1"
+jinja2 = "^3.1.3"
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
+```
+</details>
+
+<br>
+
 ## 🚦 NOT for the first time to use this
 ``` shell
 # Launch container
@@ -47,13 +84,15 @@ $ poetry add {the name of package}
   - I think the name should be same as service_postgres
   - And the user name will be POSTGRES_USER and password is going to be POSTGRES_PASSWORD that are in env file
 
+<br>
+
 - 😵 **If you run alembic command**
 ```shell
 # You have to add "poetry run" in front of "alembic" if you're using poetry
 $ poetry run alembic [your_command]
 ```
-
 <br>
+
 
 ## 🚢 References
 
