@@ -85,7 +85,7 @@ def create_access_token(username: str, user_id: int,
     if expires_delta:
         expire = datetime.utcnow() + expires_delta
     else:
-        expire = datetime.utcnow() + timedelta(minutes=15)
+        expire = datetime.utcnow() + timedelta(hours=15)
     encode.update({"exp": expire})
     return jwt.encode(encode, SECRET_KEY, algorithm=ALGORITHM)
 
@@ -118,8 +118,6 @@ async def login_for_access_token(response: Response, form_data: OAuth2PasswordRe
     response.set_cookie(key="access_token", value=token, httponly=True)
 
     return True
-
-
 
 @router.get("/", response_class=HTMLResponse)
 async def authpage(request: Request):
