@@ -1,6 +1,5 @@
 {% include 'layout.html' %}
-<div class="">
-  <div class="body">
+<div class="container">
     <div class="our-team">
       <div class="picture">
         <img class="img-fluid" src="https://www.shadygrovefertility.com/wp-content/uploads/2023/07/Egg-supply-blog.png">
@@ -9,7 +8,19 @@
         <h3 class="name">{{username}}</h3>
         <h4 class="title ml-5 mr-5">{{user_password}}</h4>
         <a type="button" href="/users/change-password" class="btn btn-primary mt-5">Change password</a>
+      <div class="card-body">
+        {% if msg %}
+          {% if msg == 'Password updated'%}
+          <div class="alert alert-success" role="alert">
+            {{msg}}
+          </div>
+          {% else %}
+          <div class="alert alert-danger" role="alert">
+            {{msg}}
+          </div>
+          {% endif %}
+        {% endif %}
       </div>
     </div>
-  </div>
+    </div>
 </div>
