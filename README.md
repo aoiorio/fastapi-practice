@@ -6,23 +6,33 @@
 # Create Docker image
 $ docker-compose build
 
-# Create pyproject.toml and install FastAPI by using "poetry"
-$ docker-compose run \
-  --entrypoint "poetry init \
-    --name fastapi-practice \
-    --dependency fastapi \
-    --dependency uvicorn[standard]" \
-  fastapi-practice
-
-# Then you must answer n in the part of Author but just push enter key in the others
-
 # Install dependencies packages (--no-root means that not installing myapp)
 $ docker-compose run --entrypoint "poetry install --no-root" fastapi-practice
 
 # Install all packages that in pyproject.toml
 # (if you changed or installed package in pyproject.toml, you must execute this command for reflection)
 $ docker-compose build --no-cache
+
+# Launch container
+$ docker-compose up
 ```
+<br>
+
+**<details><summary>🤷🏼‍♂️ What are in .env</summary>**
+
+``` env
+POSTGRES_USER=YOUR POSTGRES USER NAME
+POSTGRES_DB=YOUR POSTGRES DB NAME
+POSTGRES_PASSWORD=YOUR POSTGRES PASSWORD
+PGADMIN_DEFAULT_EMAIL=YOUR EMAIL ADDRESS
+PGADMIN_DEFAULT_PASSWORD=YOUR PASSWORD
+
+# YOUR_SQLALCHEMY_DATABASE_NAME can be the database name that you made in PgAdmin
+SQLALCHEMY_DATABASE_URL=postgresql://YOUR_POSTGRES_USER_NAME:YOUR_POSTGRES_PASSWORD@todo_db:5432/YOUR_SQLALCHEMY_DATABASE_NAME
+TEST_SQLALCHEMY_DATABASE_URL=postgresql://YOUR_POSTGRES_USER_NAME:YOUR_POSTGRES_PASSWORD@todo_db:5432/YOUR_TEST_SQLALCHEMY_DATABASE_NAME
+```
+</details>
+
 <br>
 
 **<details><summary>👹 My pyproject.toml</summary>**
