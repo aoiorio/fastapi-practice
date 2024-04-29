@@ -103,6 +103,12 @@ $ poetry add {the name of package}
 # You have to add "poetry run" in front of "alembic" if you're using poetry
 $ poetry run alembic [your_command]
 ```
+
+- 🤡 About my deployment
+  - I deployed the application (TodoAppFullStack) on [Render](https://fastapi-deployment-e0kg.onrender.com)
+  - I deployed the database on [ElephantSQL](https://www.elephantsql.com)
+  - So my database is provided by ElephantSQL for free but it might be removed on January 27, 2025
+
 <br>
 
 
