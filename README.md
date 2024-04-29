@@ -1,4 +1,6 @@
 ## 😇 This repository is for my practice of FastAPI 😇
+## 🤣 Now you can see my project's site [here](https://fastapi-deployment-e0kg.onrender.com) 🤣
+
 <br>
 
 ## 🪝 How to start for the first time
